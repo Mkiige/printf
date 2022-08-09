@@ -40,3 +40,7 @@ int _printf(const char *format, ...)
 		else
 			buffer[b_idx++] = format[f_idx];
 	}
+	va_end(ap);
+	write(1, buffer, b_idx);
+	return (b_idx);
+}
