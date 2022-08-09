@@ -17,3 +17,10 @@ int add_oct(va_list ap, char *buffer, int i)
 	num_str = int_to_str(num, 8);
 	if (!num_str)
 		return (0);
+
+	for (j = 0; num_str[j] != '\0'; j++, i++)
+		buffer[i] = num_str[j];
+
+	free(num_str);
+	return (j);
+}
