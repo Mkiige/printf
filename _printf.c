@@ -22,3 +22,21 @@ int _printf(const char *format, ...)
 	/* check each character in format */
 	for (f_idx = 0, b_idx = 0; format[f_idx] != '\0'; f_idx++)
 	{
+		/* if the current character is % check the next character */
+		if (format[f_idx] == '%')
+		{
+			if (format[f_idx + 1] == '\0')
+				return (-1);
+			/* get correct print function */
+			f = get_sp_func(format[++f_idx]);
+			if (f)
+				b_idx += f(ap, buffer, b_idx);
+			else
+			{
+				buffer[b_idx++] = '%';
+				buffer[b_idx++] = format[f_idx];
+			}
+		}
+		else
+			buffer[b_idx++] = format[f_idx];
+	}
