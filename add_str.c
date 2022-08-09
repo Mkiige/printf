@@ -22,7 +22,7 @@ int add_str(va_list ap, char *buffer, int x)
  * replacing unprintable characters accordingly
  * @ap: va_list containing the string to add
  * @buffer: character buffer
- * @i: index from which to start adding to buffer
+ * @x: index from which to start adding to buffer
  *
  * Return: number of characters added
  */
