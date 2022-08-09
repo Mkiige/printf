@@ -20,3 +20,15 @@ char *int_to_str(unsigned long int num, int base)
 		digits[0] = '0';
 		length++;
 	}
+	while (num > 0)
+	{
+		digits[length] = symbols[num % base];
+
+		length++;
+		num /= base;
+	}
+
+	/* copy digits to result array in reverse order */
+	result = malloc(sizeof(char) * (length + 1));
+	if (result == NULL)
+		return (NULL);
