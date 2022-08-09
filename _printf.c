@@ -8,39 +8,39 @@
  */
 int _printf(const char *format, ...)
 {
-	/* buffer minimizes time to call write function */
+	/* use character buffer to call write as few times as possible */
 	char buffer[SIZE] = {0};
-	int m, z;
+	int f_idx, b_idx;
 	int (*f)(va_list, char *, int);
 	va_list ap;
-
-	/* print valid formatt strings */
+	
+	/* only print valid format strings */
 	if (format == NULL)
 		return (-1);
 
 	va_start(ap, format);
-	/* check character in format */
-	for (m = 0, z = 0; format[m] != '\0'; m++)
+	/* check each character in format */
+	for (f_idx = 0, b_idx = 0; format[f_idx] != '\0'; f_idx++)
 	{
-		/* if current character is % check next character */
-		if (format[m] == '%')
+		/* if the current character is % check the next character */
+		if (format[f_idx] == '%')
 		{
-			if (format[m + 1] == '\0')
+			if (format[f_idx + 1] == '\0')
 				return (-1);
 			/* get correct print function */
-			f = mz_func(format[++m]);
+			f = get_sp_func(format[++f_idx]);
 			if (f)
-				z += f(ap, buffer, z);
+				b_idx += f(ap, buffer, b_idx);
 			else
 			{
-				buffer[z++] = '%';
-				buffer[z++] = format[m];
+				buffer[b_idx++] = '%';
+				buffer[b_idx++] = format[f_idx];
 			}
 		}
 		else
-			buffer[z++] = format[m];
+			buffer[b_idx++] = format[f_idx];
 	}
 	va_end(ap);
-	write(1, buffer, z);
-	return (z);
+	write(1, buffer, b_idx);
+	return (b_idx);
 }

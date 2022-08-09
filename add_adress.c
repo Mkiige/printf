@@ -5,19 +5,19 @@
  * as a large hexadecimal number in lowercase appended with 0x
  * @ap: va_list containing the integer to add
  * @buffer: character buffer
- * @x: index from which to start adding to buffer
+ * @i: index from which to start adding to buffer
  *
  * Return: number of characters added
  */
-int add_address(va_list ap, char *buffer, int x)
+int add_address(va_list ap, char *buffer, int i)
 {
 	unsigned long int num = va_arg(ap, unsigned long int);
 	int j, k = 0;
 	char *num_str;
 
 	if (!num)
-		return (copy_to_buff("(nil)", buffer, x));
-
+		return (copy_to_buff("(nil)", buffer, i));
+	
 	num_str = int_to_str(num, 16);
 	if (!num_str)
 		return (0);
@@ -26,12 +26,18 @@ int add_address(va_list ap, char *buffer, int x)
 	x += 2;
 	k += 2;
 	for (j = 0; num_str[j] != '\0'; j++, x++)
+		/* add "0x" in front of the number */
+	buffer[i] = '0';
+	buffer[i + 1] = 'x';
+	i += 2;
+	k += 2;
+	for (j = 0; num_str[j] != '\0'; j++, i++)
 	{
 		/* convert uppercase letters to lowercase */
 		if (num_str[j] >= 'A' && num_str[j] <= 'Z')
-			buffer[x] = num_str[j] + 32;
+			buffer[i] = num_str[j] + 32;
 		else
-			buffer[x] = num_str[j];
+			buffer[i] = num_str[j];
 	}
 
 	free(num_str);

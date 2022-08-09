@@ -5,9 +5,10 @@
  * @ap: va_list containing the integer to add
  * @buffer: character buffer
  * @x: index from which to start adding to buffer
+ * @i: index from which to start adding to b
  * Return: number of characters added
  */
-int add_oct(va_list ap, char *buffer, int x)
+int add_oct(va_list ap, char *buffer, int i)
 {
 	unsigned int num = va_arg(ap, unsigned int);
 	int j = 0;
@@ -17,8 +18,8 @@ int add_oct(va_list ap, char *buffer, int x)
 	if (!num_str)
 		return (0);
 
-	for (j = 0; num_str[j] != '\0'; j++, x++)
-		buffer[x] = num_str[j];
+	for (j = 0; num_str[j] != '\0'; j++, i++)
+		buffer[i] = num_str[j];
 
 	free(num_str);
 	return (j);
