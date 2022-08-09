@@ -31,3 +31,6 @@ char *int_to_str(unsigned long int num, int base);
 int add_int(va_list ap, char *buffer, int i);
 int add_unsigned_int(va_list ap, char *buffer, int i);
 int add_bin(va_list ap, char *buffer, int i);
+int add_hex_lower(va_list ap, char *buffer, int i);
+int add_hex_upper(va_list ap, char *buffer, int i);
+int add_oct(va_list ap, char *buffer, int i);
