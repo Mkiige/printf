@@ -40,7 +40,6 @@ int _printf(const char *format, ...)
 		else
 			buffer[z++] = format[m];
 	}
-	
 	va_end(ap);
 	write(1, buffer, z);
 	return (z);
