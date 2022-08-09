@@ -8,3 +8,13 @@
  */
 int _printf(const char *format, ...)
 {
+  /* buffer minimizes time to call write function */
+	char buffer[SIZE] = {0};
+	int f_idx, b_idx;
+	int (*f)(va_list, char *, int);
+	va_list ap;
+
+	/* print valid format strings */
+	if (format == NULL)
+		return (-1);
+
