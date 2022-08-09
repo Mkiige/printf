@@ -27,3 +27,15 @@ int add_address(va_list ap, char *buffer, int x)
 	x += 2;
 	k += 2;
 	
+	for (j = 0; num_str[j] != '\0'; j++, x++)
+	{
+		/* convert uppercase letters to lowercase */
+		if (num_str[j] >= 'A' && num_str[j] <= 'Z')
+			buffer[x] = num_str[j] + 32;
+		else
+			buffer[x] = num_str[j];
+	}
+
+	free(num_str);
+	return (j + k);
+}
