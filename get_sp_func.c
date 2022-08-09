@@ -25,3 +25,8 @@ int (*get_sp_func(char c))(va_list, char *, int)
 		{'p', add_address},
 		{'\0', NULL}
 	};
+	int i = 0;
+
+	while (sps[i].sp)
+	{
+		if (c == sps[i].sp)
