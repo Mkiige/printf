@@ -22,3 +22,6 @@ typedef struct sp
 
 int _printf(const char *format, ...);
 int (*get_sp_func(char c))(va_list, char *, int);
+int add_char(va_list ap, char *buffer, int i);
+int add_str(va_list ap, char *buffer, int i);
+int add_str_print(va_list ap, char *buffer, int i);
