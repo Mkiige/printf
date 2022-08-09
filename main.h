@@ -19,3 +19,6 @@ typedef struct sp
 	char sp;
 	int (*f)(va_list, char *, int);
 } sp_t;
+
+int _printf(const char *format, ...);
+int (*get_sp_func(char c))(va_list, char *, int);
