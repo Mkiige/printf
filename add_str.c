@@ -8,3 +8,12 @@
  *
  * Return: number of characters added
  */
+int add_str(va_list ap, char *buffer, int i)
+{
+	char *str = va_arg(ap, char *);
+
+	if (!str)
+		return (copy_to_buff("(null)", buffer, i));
+	else
+		return (copy_to_buff(str, buffer, i));
+}
