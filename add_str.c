@@ -17,7 +17,8 @@ int add_str(va_list ap, char *buffer, int x)
 	else
 		return (copy_to_buff(str, buffer, x));
 }
-* add_str_print - adds a given string to a given buffer
+/**
+ * add_str_print - adds a given string to a given buffer
  * replacing unprintable characters accordingly
  * @ap: va_list containing the string to add
  * @buffer: character buffer
@@ -54,4 +55,21 @@ int add_str_print(va_list ap, char *buffer, int x)
 	}
 
 	return (j + k);
+}
+/**
+ * copy_to_buff - copies a given string to a given buffer from a given index
+ * @s: string
+ * @buffer: buffer to copy to
+ * @x: index to to start copying to
+ *
+ * Return: number of characters copied
+ */
+int copy_to_buff(char *s, char *buffer, int x)
+{
+	int j;
+
+	for (j = 0; s[j] != '\0'; j++, x++)
+		buffer[x] = s[j];
+
+	return (j);
 }
