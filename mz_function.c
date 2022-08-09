@@ -11,4 +11,18 @@ int (*get_sp_func(char c))(va_list, char *, int)
 	sp_t sps[] = {
 		{'c', add_char},
 		{'s', add_str},
-  };
+		{'\0', NULL}
+	};
+	
+	int x = 0;
+
+	while (sps[x].sp)
+	{
+		if (c == sps[x].sp)
+			return (sps[x].f);
+
+		x++;
+	}
+
+	return (NULL);
+}
