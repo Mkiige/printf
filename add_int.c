@@ -31,3 +31,17 @@ num_str = int_to_str(num, 10);
 	free(num_str);
 	return (j + k);
 }
+
+/**
+ * add_unsigned_int - adds a given integer to a given buffer as decimal
+ * @ap: va_list containing the integer to add
+ * @buffer: character buffer
+ * @i: index from which to start adding to buffer
+ *
+ * Return: number of characters added
+ */
+int add_unsigned_int(va_list ap, char *buffer, int i)
+{
+	unsigned int num = va_arg(ap, unsigned int);
+	int j = 0;
+	char *num_str;
