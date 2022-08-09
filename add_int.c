@@ -21,3 +21,13 @@ int add_int(va_list ap, char *buffer, int i)
 		buffer[i++] = '-';
 		j++;
 	}
+num_str = int_to_str(num, 10);
+	if (!num_str)
+		return (0);
+
+	for (k = 0; num_str[k] != '\0'; k++, i++)
+		buffer[i] = num_str[k];
+
+	free(num_str);
+	return (j + k);
+}
