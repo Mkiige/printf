@@ -11,7 +11,7 @@
  */
 int add_address(va_list ap, char *buffer, int x)
 {
-  unsigned long int num = va_arg(ap, unsigned long int);
+	unsigned long int num = va_arg(ap, unsigned long int);
 	int j, k = 0;
 	char *num_str;
 
@@ -21,12 +21,10 @@ int add_address(va_list ap, char *buffer, int x)
 	num_str = int_to_str(num, 16);
 	if (!num_str)
 		return (0);
-	
 	buffer[x] = '0';
 	buffer[x + 1] = 'x';
 	x += 2;
 	k += 2;
-	
 	for (j = 0; num_str[j] != '\0'; j++, x++)
 	{
 		/* convert uppercase letters to lowercase */

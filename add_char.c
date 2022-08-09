@@ -9,7 +9,7 @@
  * Return: 1(number of characters added)
  */
 int add_char(va_list ap, char *buffer, int x)
-  {
+{
 	char c = (char) va_arg(ap, int);
 
 	buffer[x] = c;
