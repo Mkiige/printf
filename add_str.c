@@ -65,3 +65,11 @@ int add_str_print(va_list ap, char *buffer, int i)
  *
  * Return: number of characters copied
  */
+{
+	int j;
+
+	for (j = 0; s[j] != '\0'; j++, i++)
+		buffer[i] = s[j];
+
+	return (j);
+}
