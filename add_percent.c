@@ -8,3 +8,11 @@
  *
  * Return: 1(number of characters added)
  */
+int add_percent(va_list ap, char *buffer, int i)
+{
+	(void)ap;
+
+	buffer[i] = '%';
+
+	return (1);
+}
