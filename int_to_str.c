@@ -32,3 +32,10 @@ char *int_to_str(unsigned long int num, int base)
 	result = malloc(sizeof(char) * (length + 1));
 	if (result == NULL)
 		return (NULL);
+	result[length] = '\0';
+
+	for (i = 0; length > 0; i++, length--)
+		result[i] = digits[length - 1];
+
+	return (result);
+}
