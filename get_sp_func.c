@@ -30,3 +30,10 @@ int (*get_sp_func(char c))(va_list, char *, int)
 	while (sps[i].sp)
 	{
 		if (c == sps[i].sp)
+                        return (sps[i].f);
+
+		i++;
+	}
+
+	return (NULL);
+}
