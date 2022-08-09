@@ -57,3 +57,11 @@ int add_str_print(va_list ap, char *buffer, int i)
 
 	return (j + k);
 }
+/**
+ * copy_to_buff - copies a given string to a given buffer from a given index
+ * @s: string
+ * @buffer: buffer to copy to
+ * @i: index to to start copying to
+ *
+ * Return: number of characters copied
+ */
