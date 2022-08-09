@@ -27,3 +27,16 @@ int add_str(va_list ap, char *buffer, int i)
  *
  * Return: number of characters added
  */
+int add_str_print(va_list ap, char *buffer, int i)
+{
+	char *str = va_arg(ap, char *);
+	char *hex;
+	int j, k;
+
+	if (!str)
+		return (copy_to_buff("(null)", buffer, i));
+
+	for (j = 0, k = 0; str[j] != '\0'; j++, i++)
+	{
+		if (str[j] < 32 || str[j] >= 127)
+		{
