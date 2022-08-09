@@ -13,6 +13,7 @@ int add_oct(va_list ap, char *buffer, int x)
 	unsigned int num = va_arg(ap, unsigned int);
 	int j = 0;
 	char *num_str;
+	
 	num_str = int_to_str(num, 8);
 	if (!num_str)
 		return (0);
