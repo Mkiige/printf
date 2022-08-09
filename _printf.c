@@ -13,3 +13,12 @@ int _printf(const char *format, ...)
 	int f_idx, b_idx;
 	int (*f)(va_list, char *, int);
 	va_list ap;
+	
+	/* only print valid format strings */
+	if (format == NULL)
+		return (-1);
+
+	va_start(ap, format);
+	/* check each character in format */
+	for (f_idx = 0, b_idx = 0; format[f_idx] != '\0'; f_idx++)
+	{
