@@ -34,3 +34,6 @@ int add_bin(va_list ap, char *buffer, int i);
 int add_hex_lower(va_list ap, char *buffer, int i);
 int add_hex_upper(va_list ap, char *buffer, int i);
 int add_oct(va_list ap, char *buffer, int i);
+int _strlen(char *s);
+char *rev_string(char *s);
+int add_rev(va_list ap, char *buffer, int i);
