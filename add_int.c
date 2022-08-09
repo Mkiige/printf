@@ -8,3 +8,16 @@
  *
  * Return: number of characters added
  */
+int add_int(va_list ap, char *buffer, int i)
+{
+	long int num = va_arg(ap, int);
+	int k, j = 0;
+	char *num_str;
+
+	/* add '-' in front of negative numbers */
+	if (num < 0)
+	{
+		num = -num;
+		buffer[i++] = '-';
+		j++;
+	}
