@@ -10,3 +10,10 @@
  * Return: number of characters added
  */
 int add_address(va_list ap, char *buffer, int i)
+{
+	unsigned long int num = va_arg(ap, unsigned long int);
+	int j, k = 0;
+	char *num_str;
+
+	if (!num)
+		return (copy_to_buff("(nil)", buffer, i));
