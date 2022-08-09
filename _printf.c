@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	int (*f)(va_list, char *, int);
 	va_list ap;
 	
-	/* only print valid format strings */
+        /* only print valid format strings */
 	if (format == NULL)
 		return (-1);
 
