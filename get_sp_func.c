@@ -18,3 +18,10 @@ int (*get_sp_func(char c))(va_list, char *, int)
 		{'b', add_bin},
 		{'x', add_hex_lower},
 		{'X', add_hex_upper},
+                {'o', add_oct},
+		{'u', add_unsigned_int},
+		{'r', add_rev},
+		{'R', add_rot},
+		{'p', add_address},
+		{'\0', NULL}
+	};
