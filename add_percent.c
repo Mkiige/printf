@@ -10,3 +10,9 @@
  */
 int add_percent(va_list ap, char *buffer, int x)
 {
+	(void)ap;
+
+	buffer[x] = '%';
+
+	return (1);
+}
