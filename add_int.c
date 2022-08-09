@@ -52,3 +52,7 @@ int add_unsigned_int(va_list ap, char *buffer, int i)
 
 	for (j = 0; num_str[j] != '\0'; j++, i++)
 		buffer[i] = num_str[j];
+	
+	free(num_str);
+	return (j);
+}
