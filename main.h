@@ -43,6 +43,7 @@ int get_flag(char s, flags_t *f);
 int print_string(va_list l, flags_t *f);
 int print_char(va_list l, flags_t *f);
 int _putchar(char c);
+int get_width(const char *format, int *i, va_list list);
 int _puts(char *str);
 int print_rot13(va_list l, flags_t *f);
 int print_rev(va_list l, flags_t *f);
